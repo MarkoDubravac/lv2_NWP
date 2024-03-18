@@ -26,7 +26,7 @@ if (!empty($uploadedFiles)) {
             if ($data !== false) {
                 $decryptedFilePath = "decrypted_" . basename($file);
                 file_put_contents($decryptedFilePath, $data);
-                echo "<li><a href='download.php?file={$decryptedFilePath}' target='_blank'>Download {$file}</a></li>";
+                echo "<li><a href='lv2_2_download.php?file={$decryptedFilePath}' target='_blank'>Download {$file}</a></li>";
             } else {
                 echo "<li>Error decrypting file: {$file}</li>";
             }

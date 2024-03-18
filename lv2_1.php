@@ -3,8 +3,7 @@ $db_name = 'lv1';
 $dir = "backup/$db_name";
 if (!is_dir($dir)) {
     if (!@mkdir($dir)) {
-        die("<p>Ne možemo stvoriti direktorij
-$dir.</p></body></html>");
+        die("<p>Ne možemo stvoriti direktorij $dir.</p></body></html>");
     }
 }
 $time = time();
@@ -14,8 +13,7 @@ $dbc = @mysqli_connect(
     '',
     $db_name
 ) or
-    die("<p>Ne možemo se spojiti na bazu
-$db_name.</p></body></html>");
+    die("<p>Ne možemo se spojiti na bazu $db_name.</p></body></html>");
 $r = mysqli_query($dbc, 'SHOW TABLES');
 if (mysqli_num_rows($r) > 0) {
     echo "<p>Backup za bazu podataka '$db_name'.</p>";
@@ -60,8 +58,7 @@ if (mysqli_num_rows($r) > 0) {
                 gzclose($fp);
                 echo "<p>Tablica '$table' je pohranjena.</p>";
             } else {
-                echo "<p>Datoteka $dir/{$table}_{$time}.sql.gz se
-ne može otvoriti.</p>";
+                echo "<p>Datoteka $dir/{$table}_{$time}.sql.gz se ne može otvoriti.</p>";
                 break;
             }
         }
